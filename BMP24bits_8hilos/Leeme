@@ -1,0 +1,4 @@
+Compilación:
+g++ -o bmp main.cpp BMP.cpp BMP.h
+
+
