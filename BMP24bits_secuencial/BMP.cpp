@@ -1,9 +1,3 @@
-/*
-Cargar y procesar imágenes BMP de 24bits con C++
-http://www.widget-101.com/
-Autor: Christiam Mena
-*/
-
 #include "BMP.h"
 #include <omp.h>
 
@@ -38,7 +32,7 @@ BMP::BMP(const char *name)
 		fread(&header.numberOfColours,  1, sizeof(DWORD), pFile);		
 		fread(&header.importantColours, 1, sizeof(DWORD), pFile);	
 
-		// Si el archivo no es de 8bpp, termino la ejecución
+		// Si el archivo no es de 8bpp, termino la ejecuciï¿½n
 		if(header.bitsPerPixel != 24){
 			fclose(pFile);
 			return;
@@ -144,7 +138,7 @@ void BMP::fromRGBtoGRAY(void) {
 
     BYTE intensity = 0;
     
-    // Añadimos pragma omp parallel y ajustamos la estructura del bucle
+    // Aï¿½adimos pragma omp parallel y ajustamos la estructura del bucle
     #pragma omp parallel for collapse(8) // collapse(2) para paralelizar ambos bucles
     for (int y = 0; y < header.height; y++) {
 		#pragma omp parallel for collapse(8)

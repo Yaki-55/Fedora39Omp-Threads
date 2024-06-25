@@ -1,4 +1,4 @@
 for i in {1..50}
 do
-	./bmp
+	./bmp /ruta/a/la/imagen/example.bmp
 done

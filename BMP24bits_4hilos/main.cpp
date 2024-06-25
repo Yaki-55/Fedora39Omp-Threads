@@ -4,6 +4,7 @@
 #include <sys/time.h>
 #include <stdio.h>    
 #include "BMP.h"
+#include <iostream>
 
 void* hilograyscale(void* param);
 
@@ -14,9 +15,20 @@ double timeval_diff(struct timeval* a, struct timeval* b)
 }
 
 int main(int argc, char** argv) {
+    // Verificar que se haya pasado la dirección de la imagen como argumento 
+    if (argc < 2) {
+        std::cerr << "Uso: " << argv[0] << " <ruta_a_la_imagen>" << std::endl;
+        return 1;
+    }
+
+    // Obtener la dirección de la imagen desde los argumentos de la línea de comandos
+    const char* imagePath = argv[1];
+
     struct timeval t_ini, t_fin;
     double secs;
-    BMP bmp("nature.bmp");
+
+    // Crear el objeto BMP usando la dirección de la imagen proporcionada
+    BMP bmp(imagePath);
 
     gettimeofday(&t_ini, NULL);
 

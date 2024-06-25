@@ -1,0 +1,10 @@
+IMPORTANTE
+Este codigo solo trabaja con imagenes en formato BMP con un tamaño de 24 bits, no admite otro tipo de formato
+
+Forma de compilacion
+g++ -o bmp main.cpp BMP.cpp -lX11 -lpthread
+
+Forma de ejecucion para un unico valor
+./bmp /ruta/a/la/imagen/example.bmp
+
+Para realizar la ejecucion 50 vece utilizar bmp.sh cambiando en el archivo la ruta a la imagens

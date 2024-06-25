@@ -1,9 +1,3 @@
-/*
-Cargar y procesar imágenes BMP de 24bits con C++
-http://www.widget-101.com/
-Autor: Christiam Mena
-*/
-
 #ifndef BMP_H
 #define BMP_H
 
@@ -20,16 +14,16 @@ Autor: Christiam Mena
 typedef struct 
 {
 	WORD   identifier;             // Magic number: BM
-	DWORD  size;                   // tamaño del archivo
+	DWORD  size;                   // tamaï¿½o del archivo
 	DWORD  reserved;               //
 	DWORD  bitoffset;              // offset para comenzar a leer la data	
-	DWORD  headerSize;             // tamaño de la cabecera
+	DWORD  headerSize;             // tamaï¿½o de la cabecera
 	DWORD  width;                  // ancho
 	DWORD  height;                 // alto
 	WORD   planes;                 // numero de planos del bitmap
 	WORD   bitsPerPixel;           // bit por pixel
 	DWORD  compression;            // especificacion de la compresion
-	DWORD  imageSize;              // tamaño de la seccion de datos
+	DWORD  imageSize;              // tamaï¿½o de la seccion de datos
 	DWORD  hresolution;            // resolucion horizontal medida en pixeles por metro
 	DWORD  vresolution;            // resolucion vertical medida en pixeles por metro
 	DWORD  numberOfColours;        // numero de colores ( 2^bitsPerPixel )

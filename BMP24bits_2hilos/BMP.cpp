@@ -1,13 +1,6 @@
-/*
-Cargar y procesar imágenes BMP de 24bits con C++
-http://www.widget-101.com/
-Autor: Christiam Mena
-*/
-
 #include "BMP.h"
 
-BMP::BMP(const char *name)
-{
+BMP::BMP(const char *name) {
 	if(!name) return;
 
 	// Reinicio de las variables
@@ -18,8 +11,7 @@ BMP::BMP(const char *name)
 	FILE *pFile = fopen(name, "rb");	
 
 	// Si se pudo cargar el archivo
-	if(pFile)
-	{
+	if(pFile) {
 		// Cargo la cabecera
 		fread(&header.identifier,       1, sizeof(WORD),  pFile);		
 		fread(&header.size,             1, sizeof(DWORD), pFile);		
@@ -37,7 +29,7 @@ BMP::BMP(const char *name)
 		fread(&header.numberOfColours,  1, sizeof(DWORD), pFile);		
 		fread(&header.importantColours, 1, sizeof(DWORD), pFile);	
 
-		// Si el archivo no es de 8bpp, termino la ejecución
+		// Si el archivo no es de 8bpp, termino la ejecuciï¿½n
 		if(header.bitsPerPixel != 24){
 			fclose(pFile);
 			return;
@@ -55,13 +47,11 @@ BMP::BMP(const char *name)
 	}
 }
 
-BMP::~BMP(void)
-{
+BMP::~BMP(void) {
 	if (pImageData != NULL) delete[] pImageData;
 }
 
-void BMP::printHeader(void)
-{
+void BMP::printHeader(void) {
 	if(isImageLoaded){
 		printf("  ===========================================================\n");
 		printf("    Image information:\n");
@@ -87,10 +77,8 @@ void BMP::printHeader(void)
 	}
 }
 
-void BMP::save(const char *name)
-{
-	if(isImageLoaded)
-	{
+void BMP::save(const char *name) {
+	if(isImageLoaded) {
 		if(!name) return;
 
 		FILE *pFile = fopen(name, "wb");
